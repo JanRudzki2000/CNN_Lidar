@@ -12,8 +12,7 @@ pub = None
 
 def preprocessing(data):
     k = 24
-    dim = 48
-
+    dim = k*2
     matrix = np.zeros([dim,dim,1])
     
     cut_angle = 90
@@ -22,8 +21,8 @@ def preprocessing(data):
       if data[i] < 1:
         angle = np.radians(i)
         r = data[i]
-        x = int(r * np.sin(angle) * k + dim //2)
-        y = int(r * np.cos(angle) * k + dim //2)
+        x = int(r * np.sin(angle) * k + k)
+        y = int(r * np.cos(angle) * k + k)
         if 0 <= x < dim and 0 <= y < dim:
                 matrix[y,x] = 1
 
